@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Symptom Checker</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container mt-5">
+
+<h1 class="text-center mb-4">
+🩺 Symptom Checker
+</h1>
+
+<div class="card shadow p-4">
+
+<label>Select Symptom</label>
+
+<select id="symptom" class="form-control">
+
+<option value="">Choose</option>
+
+<option value="fever">Fever</option>
+
+<option value="cough">Cough</option>
+
+<option value="headache">Headache</option>
+
+<option value="stomach">Stomach Pain</option>
+
+<option value="cold">Cold</option>
+
+</select>
+
+<button
+class="btn btn-primary mt-3"
+onclick="checkSymptom()">
+
+Check
+
+</button>
+
+<div id="result" class="mt-4"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function checkSymptom(){
+
+let symptom =
+document.getElementById("symptom").value;
+
+let result = "";
+
+switch(symptom){
+
+
+case "fever":
+
+result = `
+<h4>🌡️ Fever</h4>
+
+<p><b>Possible Causes:</b>
+Viral Infection, Flu, Infection
+</p>
+
+<p><b>Suggested Solution:</b></p>
+
+<ul>
+<li>Drink plenty of water</li>
+<li>Take adequate rest</li>
+<li>Monitor body temperature</li>
+</ul>
+
+<p class="text-danger">
+⚠ Consult a doctor if fever lasts more than 3 days.
+</p>
+`;
+
+break;
+
+case "cough":
+
+result = `
+<h4>😷 Cough</h4>
+
+<p><b>Possible Causes:</b>
+Cold, Allergy, Throat Irritation
+</p>
+
+<p><b>Suggested Solution:</b></p>
+
+<ul>
+<li>Drink warm water</li>
+<li>Avoid cold drinks</li>
+<li>Take proper rest</li>
+</ul>
+
+<p class="text-danger">
+⚠ Consult a doctor if cough is severe.
+</p>
+`;
+
+break;
+
+case "headache":
+
+result = `
+<h4>🤕 Headache</h4>
+
+<p><b>Possible Causes:</b>
+Stress, Lack of Sleep, Dehydration
+</p>
+
+<p><b>Suggested Solution:</b></p>
+
+<ul>
+<li>Drink water</li>
+<li>Take rest</li>
+<li>Avoid screen exposure</li>
+</ul>
+
+<p class="text-danger">
+⚠ Consult a doctor if pain is persistent.
+</p>
+`;
+
+break;
+
+case "stomach":
+
+result = `
+<h4>🤢 Stomach Pain</h4>
+
+<p><b>Possible Causes:</b>
+Indigestion, Food Poisoning
+</p>
+
+<p><b>Suggested Solution:</b></p>
+
+<ul>
+<li>Eat light food</li>
+<li>Drink water</li>
+<li>Avoid oily foods</li>
+</ul>
+
+<p class="text-danger">
+⚠ Seek medical help if pain becomes severe.
+</p>
+`;
+
+break;
+
+case "cold":
+
+result = `
+<h4>🤧 Common Cold</h4>
+
+<p><b>Possible Causes:</b>
+Viral Infection
+</p>
+
+<p><b>Suggested Solution:</b></p>
+
+<ul>
+<li>Take rest</li>
+<li>Drink warm fluids</li>
+<li>Maintain hydration</li>
+</ul>
+
+<p class="text-danger">
+⚠ Visit a doctor if symptoms worsen.
+</p>
+`;
+
+break;
+
+default:
+
+result = `
+<div class="alert alert-warning">
+Please select a symptom.
+</div>
+`;
+
+}
+
+document.getElementById("result").innerHTML = result;
+
+}
+</script>
+
+</body>
+</html>

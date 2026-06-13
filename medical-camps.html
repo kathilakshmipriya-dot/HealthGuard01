@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HealthGuard AI - Medical Camps</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f8ff;
+}
+
+h1{
+    text-align:center;
+    color:#0066cc;
+}
+
+.container{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.section{
+    width:45%;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.card{
+    background:#e8f4ff;
+    padding:15px;
+    margin:10px;
+    border-radius:8px;
+}
+
+h2{
+    color:#009933;
+}
+
+.completed h2{
+    color:red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🏥 HealthGuard Medical Camps</h1>
+
+
+<div class="container">
+
+<div class="section">
+
+<h2>Upcoming Camps</h2>
+
+<div class="card camp" data-date="2026-06-25">
+
+<h3>Eye Health Camp</h3>
+
+<p>📅 Date: 25 June 2026</p>
+
+<p>⏰ Time: 10 AM - 4 PM</p>
+
+<p>📍 Government Hospital Area</p>
+<h4>Services:</h4>
+
+<div class="service">✓ Eye Checkup</div>
+<div class="service">✓ Vision Test</div>
+<div class="service">✓ Free Advice</div>
+</div>
+
+<div class="card camp" data-date="2026-07-10">
+
+<h3>General Health Checkup</h3>
+
+<p>📅 Date: 10 July 2026</p>
+
+<p>⏰ Time: 9 AM - 2 PM</p>
+
+<p>📍 Community Hall</p>
+<h4>Services:</h4>
+
+<div class="service">✓ Blood Sugar Test</div>
+<div class="service">✓ BP Check</div>
+<div class="service">✓ Doctor Consultation</div>
+
+</div>
+
+</div>
+
+<div class="section completed">
+
+<h2>Completed Camps</h2>
+
+<div id="completedCamps">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+let today = new Date();
+today.setHours(0,0,0,0);
+
+
+let camps = document.querySelectorAll(".camp");
+
+
+let completedBox = document.getElementById("completedCamps");
+
+
+
+camps.forEach(function(camp){
+
+
+let date = new Date(camp.getAttribute("data-date"));
+
+
+
+if(date < today){
+
+    completedBox.appendChild(camp);
+
+}
+
+
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>
